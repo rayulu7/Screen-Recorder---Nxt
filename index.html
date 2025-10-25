@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nxt7Screens | Professional Screen Capture</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎥</text></svg>">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <i class="fas fa-video"></i>
+                </div>
+                <span class="brand-text">Nxt7Screens</span>
+            </div>
+            <div class="nav-status">
+                <div class="status-indicator" id="statusIndicator">
+                    <div class="status-dot"></div>
+                    <span>Ready</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <section class="recording-section">
+            <div class="recording-container">
+                <div class="preview-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <i class="fas fa-eye"></i>
+                            <span>Live Preview</span>
+                        </div>
+                        <div class="panel-controls">
+                            <button class="control-btn" id="fullscreenBtn" title="Fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-container" id="videoPreview">
+                        <div class="preview-placeholder">
+                            <div class="placeholder-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3>Ready to Record</h3>
+                            <p>Click the record button to start capturing your screen</p>
+                            <div class="quality-indicator">
+                                <span class="quality-badge">4K Ready</span>
+                                <span class="quality-badge">60 FPS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Recording Controls</span>
+                        </div>
+                    </div>
+
+                    <div class="options-section">
+                        <div class="option-card">
+                            <div class="option-header">
+                                <i class="fas fa-microphone"></i>
+                                <span>Audio Settings</span>
+                            </div>
+                            <div class="option-controls">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="includeAudio" checked>
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">System Audio</span>
+                                </label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="includeMicrophone">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">Microphone</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="option-card">
+                            <div class="option-header">
+                                <i class="fas fa-video"></i>
+                                <span>Face Cam Settings</span>
+                            </div>
+                            <div class="option-controls">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="includeFaceCam">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">Face Cam (Optional)</span>
+                                </label>
+                                <div class="facecam-options" id="facecamOptions" style="display: none;">
+                                    <div class="facecam-position">
+                                        <label>Position:</label>
+                                        <select id="facecamPosition">
+                                            <option value="top-right">Top Right</option>
+                                            <option value="top-left">Top Left</option>
+                                            <option value="bottom-right">Bottom Right</option>
+                                            <option value="bottom-left">Bottom Left</option>
+                                        </select>
+                                    </div>
+                                    <div class="facecam-size">
+                                        <label>Size:</label>
+                                        <select id="facecamSize">
+                                            <option value="small">Small (150px)</option>
+                                            <option value="medium" selected>Medium (200px)</option>
+                                            <option value="large">Large (250px)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recording-controls">
+                        <div class="control-group" id="buttonContainer">
+                            <button id="startBtn" class="record-btn record-start">
+                                <div class="btn-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <span>Start Recording</span>
+                                <div class="btn-ripple"></div>
+                            </button>
+                            
+                            <button id="stopBtn" class="control-btn stop-btn" style="display: none;">
+                                <i class="fas fa-stop"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="recording-status" id="recordingInfo" style="display: none;">
+                        <div class="status-card">
+                            <div class="status-header">
+                                <div class="recording-indicator">
+                                    <div class="pulse-ring"></div>
+                                    <div class="pulse-dot"></div>
+                                </div>
+                                <span class="status-text">Recording in Progress</span>
+                            </div>
+                            <div class="timer-display">
+                                <div class="timer" id="timer">00:00:00</div>
+                                <div class="timer-label">Duration</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="download-section" id="downloadSection" style="display: none;">
+            <div class="download-container">
+                <div class="download-card">
+                    <div class="download-header">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Recording Complete!</h3>
+                        <p>Preview your recording below and decide what to do</p>
+                    </div>
+                    
+                    <div class="video-preview-section">
+                        <div class="preview-header">
+                            <h4>Recording Preview</h4>
+                            <div class="video-info">
+                                <span id="videoDuration">Duration: 00:00:00</span>
+                                <span id="videoSize">Size: 0 MB</span>
+                            </div>
+                        </div>
+                        <div class="video-player-container">
+                            <video id="recordedVideo" controls class="recorded-video">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <div class="download-actions">
+                        <button id="downloadBtn" class="download-btn">
+                            <i class="fas fa-download"></i>
+                            <span>Download Recording</span>
+                        </button>
+                        <button id="deleteBtn" class="delete-btn">
+                            <i class="fas fa-trash"></i>
+                            <span>Delete Recording</span>
+                        </button>
+                        <button id="newRecordingBtn" class="secondary-btn">
+                            <i class="fas fa-plus"></i>
+                            <span>New Recording</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
