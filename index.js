@@ -164,7 +164,7 @@ class ProScreenRecorder {
             
             if ((e.code === 'KeyS' || e.code === 'Space') && !this.isRecording && e.target.tagName !== 'INPUT') {
                 e.preventDefault();
-                if (!this.startBtn || this.startBtn.offsetParent === null) return; // Check if button is visible
+                if (!this.startBtn || this.startBtn.offsetParent === null) return; 
                 this.startRecording();
             }
         });
@@ -311,8 +311,8 @@ class ProScreenRecorder {
             
             const options = {
                 mimeType: this.getSupportedMimeType(),
-                videoBitsPerSecond: 2500000, // 2.5 Mbps for good quality
-                audioBitsPerSecond: 128000 // 128 kbps for audio
+                videoBitsPerSecond: 2500000, 
+                audioBitsPerSecond: 128000 
             };
 
             this.mediaRecorder = new MediaRecorder(combinedStream, options);
