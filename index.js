@@ -24,7 +24,6 @@ class ProScreenRecorder {
         this.initializeKeyboardShortcuts();
         this.updateStatusIndicator('Ready');
         } catch (error) {
-            console.error('Screen Recorder initialization failed:', error);
             alert('Failed to initialize screen recorder: ' + error.message);
             return;
         }
