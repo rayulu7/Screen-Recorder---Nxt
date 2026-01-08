@@ -33,7 +33,7 @@
      min-height: 100vh;
      color: var(--text-primary);
      overflow-x: hidden;
-     line-height: 1.6;
+     line-height: 1.5;
  }
 
 .navbar {
